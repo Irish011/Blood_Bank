@@ -18,7 +18,7 @@
 		 
 		.box
 		{
-			width:515px;
+			width:700px;
 			position:absolute;
 			top:50%;
 			left:50%;
@@ -140,9 +140,9 @@
 						
 						<form>
 							  <div class="form-group col-md-4" style="float:left;float:top;clear:left;margin-top: 0;">
-							    <label for="inputState" style="margin-top:-20px;padding: 0;">State*</label>
+							    <label for="inputState" style="margin-top:-35px;margin-left: 3px;">State*</label>
 							  
-							    <select class="form-control" id="inputState" style="border-radius:5px;font-size:16px;color:#a22525;">
+							    <select class="form-control" id="inputState" style="width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left:-13px;">
 							                        <option value="SelectState">Select State</option>
 							                        <option value="Andra Pradesh">Andra Pradesh</option>
 							                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -187,10 +187,10 @@
 							  <div class="form-group col-md-4" style="float:left;float:top;margin-top:-15px;margin-left:30px;">
 								
 								
-								<select class="form-control" id="inputDistrict" style="border-radius:5px;font-size:16px;color:#a22525;">
+								<select class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
-								<label for="inputDistrict" style="margin-left:25px;margin-top:-20px;padding: 0;">District*</label>
+								<label for="inputDistrict" style="margin-left:65px;margin-top:-42px;">District*</label>
 							  </div>
 
 							</form>
