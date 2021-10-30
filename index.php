@@ -4,11 +4,7 @@
 <?php 
 	$servername="localhost";
 	$username="root";
-<<<<<<< HEAD
-	$password="KHUSHI";
-=======
 	$password="";
->>>>>>> 4b464f2840ed34b1c57337d544579ca4b2798dc5
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -120,22 +116,22 @@ const features = [
 </div>
 </center>
 
-<div class="card text-white bg-danger">
-  <div class="card-header">
+<div class="card text-white bg-danger" style="margin-bottom:10px;">
+  <div class="card-body">
     <center>About | Terms & Conditions</center>
   </div>
-  <div class="card-body">
-		<center>
+  <!-- <div class="card-body"> -->
+		<!-- <center> -->
 		<!--<h5 class="card-title">About Us</h5>-->
-		<p class="card-text">wdcjdhijdcishvosidvoisdjvodsijvoijoi<br>hdoeuwhouehfouehfoewh<br>dheiuhiweuhfwie<p>
+		<!-- <p class="card-text">wdcjdhijdcishvosidvoisdjvodsijvoijoi<br>hdoeuwhouehfouehfoewh<br>dheiuhiweuhfwie<p> -->
 		<!--<a href="#" class="btn btn-light">Our page </a>-->
-		<center>
+		<!-- <center> -->
 	
 		<!--<h5 class="card-title">Terms & Conditions</h5>-->
 		<!--<p class="card-text">wdfjoiehoifhewpijfpewijfpow<p>-->
 		<!--<a href="#" class="btn btn-light">Our page </a>-->
-		<center>
-  </div>
+		<!-- <center> -->
+  <!-- </div> -->
 </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
