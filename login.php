@@ -162,7 +162,7 @@ session_start();
 			<h1>Login Form</h1>
 			<form method="post" action="#">
 			
-			<div class="inputBox">			
+			<div class="inputBox">	 		
 				<select name="login" autocomplete="off" required style="border-color:#fff;background:transparent;width:200px;border-radius:5px;font-size:16px;color:#fff;">
 					<option style="background:rgba(209, 32, 47, 0.9);">Login As Donor</option>
 					<option style="background:rgba(209, 32, 47, 0.9);">Login As Blood Bank</option>
