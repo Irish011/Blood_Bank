@@ -93,7 +93,11 @@
 	<?php
 	$servername="localhost";
 	$username="root";
+<<<<<<< HEAD
 	$password="KHUSHI";
+=======
+	$password="aastha";
+>>>>>>> 6326fcd6074a69ac06cedc5cb8e8b60893652caa
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -201,7 +205,7 @@
 								<select class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
-								<label for="inputDistrict" style="margin-left:65px;margin-top:-42px;">District*</label>
+								<label for="inputDistrict" style="margin-left:65px;margin-top:-42px;">City*</label>
 							  </div>
 
 							</form>
@@ -387,9 +391,9 @@
 
 					<br><br>
 
-					<div class="inputBox">
-						<input type="text" name="City" autocomplete="off" required>
-						<label>City*</label>
+					 <div class="inputBox">
+						<input type="text" name="Pincode" inputmode="numeric" name="Pincode" autocomplete="off" required maxlength="6">
+						<label>Pin Code*</label>
 					</div>
 
 
