@@ -464,7 +464,6 @@
 					
 				</div>-->
 
-
 				<div class="inputBox">
 					
 					<input type="password" name="pass" autocomplete="off" required>
