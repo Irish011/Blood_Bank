@@ -92,6 +92,7 @@
 	</style>
 
 <?php
+session_start();
 	$servername="localhost";
 	$username="root";
 	$password="";
@@ -101,6 +102,24 @@
 
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
+	}
+	mysqli_select_db($con,$database);
+
+	if(isset($_POST['s'])){
+		$email=$_POST['email'];
+		$pass=$_POST['password'];
+
+		$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
+		$result=mysqli_query($con,$sql);
+
+		if(!$result || mysqli_num_rows($result)==0){
+            $message1="Wrong Credentials";
+            echo "<script type='text/javascript'>alert('$message1');</script>";
+        }else{
+            //header("location:user_page.php");
+            header("location:homepage.php");
+            $_SESSION['email'] = $email;
+        }
 	}
 ?>
 </head>
@@ -141,12 +160,12 @@
 <div class="main_div">
 		<div class="box">
 			<h1>Login Form</h1>
-			<form method="" action="">
+			<form method="post" action="#">
 			
 			
 				<div class="inputBox">
 
-					<input type="text" name="username" autocomplete="off" required>
+					<input type="text" name="email" autocomplete="off" required>
 					<label>username*</label>
 					
 				</div>
@@ -158,7 +177,7 @@
 					
 				</div>
 				
-				<input type="Submit" name="submit" value="Login">
+				<input type="Submit" name="s" value="Login">
 				
 			</form>
 		</div>
