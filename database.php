@@ -115,19 +115,13 @@
     <!-- Php -->
     <?php
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $name = $_POST['name'];
-      $gender = $_POST['gender'];
-      $date = $_POST['date'];
-      $blood = $_POST['BloodGroup'];
-      $aadhar = $_POST['aadhaar'];
-      $mobile = $_POST['mobile'];
-      $email = $_POST['email'];
-      $state = $_POST['state'];
-      $district = $_POST['district'];
-      $city = $_POST['city'];
-      $ldate = $_POST['ldate'];
-      $preference = $_POST['preference'];
-      $passworde = $_POST['password'];
+      
+    $orgname = $_POST['oname'];
+    $usrname = $_POST['username'];
+    $pass = $_POST['pass'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $district = $_POST['district'];
 
     $servername="localhost";
 	$username="root";
@@ -139,7 +133,9 @@
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
 	}else{
-        $sql = "INSERT INTO `user`(`name`,`gender`,`date`,`blood`,`aadhar`,`mobile`,`email`,`state`,`district`,`city`,`ldate`,`preference`,`password`) VALUES ('$name','$gender','$date','$blood','$aadhar','$mobile','$email','$state','$district','$city','$ldate','$preference','$passworde')";
+        //      
+        $sql = "INSERT INTO `banks`(`org_name`, `usrname`, `password`, `state`, `city`, `district`) VALUES ('$orgname','$usrname','$pass','$state','$city','$district')";        
+    //    $sql = "INSERT INTO `bank`(`org_name`)VALUES('$orgname')";
         $result = mysqli_query($con,$sql);
         if($result){
             	$message="Successfully Registered";
@@ -191,85 +187,24 @@
 <!-- Main  -->
 <div class="main_div">
 		<div class="box">
-			<h1>Register As a Donor</h1>
-    <form method="POST" action="#">
-    <h3>Personal Details</h3>
-			
-
-            <div class="inputBox">
-                <input type="text" name="name" autocomplete="off" required>
-                <label>Full Name*</label>
-            </div>
-
-            <div class="inputBox">
-
-						<label>Gender*</label>
-						<br><br>
-						<select name="gender" autocomplete="off" required style="border-radius:5px;font-size:16px;color:#a22525;">
-							<option>Male</option>
-							<option>Female</option>
-							<option>Other</option>
-						</select>
-
-						<br><br>
-						
-			</div>
-
-            <div class="inputBox">
-						<input type="date" name="date" autocomplete="off" required style="color:rgba(209, 32, 47, 0.9);">
-						<label>Date Of Birth*</label>
-			</div>           
-            
-            <div class="inputBox">
-
-						<label>Blood Group*</label>
-						<br><br>
-						<select name="BloodGroup" autocomplete="off" required style="border-radius:5px;font-size:16px;color:#a22525;">
-							<option>O+</option>
-							<option>O-</option>
-							<option>A+</option>
-							<option>A-</option>
-							<option>B+</option>
-							<option>B-</option>
-							<option>AB+</option>
-							<option>AB-</option>
-							<option>Don't Know</option>
-						</select>
-
-						<br><br>
-						
+			<h1>Register Blood Bank</h1>
+			<form method="post" action="#">
+                    <div class="inputBox">
+						<input type="text" name="oname" autocomplete="off" required>
+						<label>Organization Name*</label>
 					</div>
 
                     <div class="inputBox">
-						<input type="text" name="aadhaar" autocomplete="off" required>
-						<label>Aadhaar Card NO.*</label>
-					</div>
-				
-
-					<h3>Contact Details</h3>
-				
-
-					<div class="inputBox">
-						<input type="text" name="mobile" autocomplete="off" required>
-						<label>Mobile No.*</label>
+						<input type="text" name="address" autocomplete="off" required>
+						<label>Orgenization Address*</label>
 					</div>
 
-
-					<div class="inputBox">
-						<input type="text" name="email" autocomplete="off" required>
-						<label>Email Address*</label>
-					</div>
-
-                    <h3>Location</h3>
-                    <br>
-
-                    	<div class="inputBox">
-						
-						<!-- <form> -->
+                    <div class="inputBox">
 							  <div class="form-group col-md-4" style="float:left;float:top;clear:left;margin-top: 0;">
 							    <label for="inputState" style="margin-top:-20px;margin-left: 4px;">State*</label>
 							  
-							    <select class="form-control" name="state" id="inputState" style=" width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left: -12px;">
+								<!-- States -->
+							    <select class="form-control" name="state" id="inputState" style="width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left: -12px;">
 							                        <option value="SelectState">Select State</option>
 							                        <option value="Andra Pradesh">Andra Pradesh</option>
 							                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -314,14 +249,11 @@
 							  <div class="form-group col-md-4" style="float:left;float:top;margin-top:-15px;margin-left:30px;">
 								
 								
-								<select class="form-control" name="district" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
+								<select name="district" class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
 								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">District*</label>
 							  </div>
-
-							<!-- </form> -->
-
 							<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 							<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -330,8 +262,8 @@
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 							<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 						
-					</div>
-                    <!-- District -->
+					</div>	
+
 
                     <div class="inputBox">
 
@@ -501,51 +433,37 @@
 								
 					</div>
 
-<br>
+					<br>
+
                     <div class="inputBox">
 						<input type="text" name="city" autocomplete="off" required>
 						<label>City*</label>
 					</div>
-
-
-					<h3>Donor Specific Information</h3>
-
-					<div class="inputBox">
-						<input type="date" name="ldate" autocomplete="off" style="color:rgba(209, 32, 47, 0.9);">
-						<label>Last Date Of Donation</label>
-					</div>
-
+					<br>
                     <div class="inputBox">
-
-						<label>Preference</label>
-						<br>
-						<br>
-						<select name="preference" autocomplete="off" style="border-radius:5px;font-size:16px;color:#a22525;">
-							<option>Once in 3 Months</option>
-							<option>Only in Emergency</option>
-						</select>
-						
-					</div>
-<br>
-
-<!-- 
-				<div class="inputBox">
 
 					<input type="text" name="username" autocomplete="off" required>
 					<label>Username*</label>
 					
-				</div> -->
-                    <div class="inputBox">
+				</div>
+
+
+				<div class="inputBox">
 					
-					<input type="password" name="password" autocomplete="off" required>
+					<input type="password" name="pass" autocomplete="off" required>
 					<label>Password*</label>
 					
 				</div>
 
-        <!-- Name: <input type="text" name="name"/><br><br> -->
-        <input type="submit" name="s" value="Register" />
-    </form>
-                                    </div>
-                                    </div>
+					<br>
+
+                    <input type="Submit" name="s" value="Register">
+            </form>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

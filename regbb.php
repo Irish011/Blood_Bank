@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Blood Bank Registration</title>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trail</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	
 	<link rel="stylesheet" href="style.css">
-	<!-- CSS -->
-	<style>
+
+
+    <style>
 		
 		*
 		{
@@ -108,27 +109,48 @@
 			padding:8px 16px;
 			border-radius:5px;
 			font-size:14px;
-			
-			
-
 		}
 		
 	</style>
-<?php
-	$servername="localhost";
+    <!-- Php -->
+    <?php
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      
+    $orgname = $_POST['oname'];
+    $usrname = $_POST['username'];
+    $pass = $_POST['pass'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $district = $_POST['district'];
+
+    $servername="localhost";
 	$username="root";
 	$password="";
 	$database="bloodbank_nitr";
 
-	$con=mysqli_connect($servername,$username,$password,$database);
+    $con=mysqli_connect($servername,$username,$password,$database);
 
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
-	}
-?>
+	}else{
+        //      
+        $sql = "INSERT INTO `banks`(`org_name`, `usrname`, `password`, `state`, `city`, `district`) VALUES ('$orgname','$usrname','$pass','$state','$city','$district')";        
+    //    $sql = "INSERT INTO `bank`(`org_name`)VALUES('$orgname')";
+        $result = mysqli_query($con,$sql);
+        if($result){
+            	$message="Successfully Registered";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            }else{
+            	$message1="User already Exists!";
+                echo "<script type='text/javascript'>alert('$message1');</script>";
+            }
+    }
+  }
+  ?>
 </head>
 <body>
-	<!-- TopBar -->
+
+<!-- Top Bar  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 	<a class="navbar-brand" href="#">Welcome to Blood Bank</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,7 +159,7 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
+			<li class="nav-item ">
 				<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item dropdown active">
@@ -148,7 +170,7 @@
 				<a class="dropdown-item" href="regdonor.php">Register as a donor</a>
 				<a class="dropdown-item" href="regbb.php">Register as a Blood Bank</a></div>
 			</li>
-			<li class="nav-item ">
+			<li class="nav-item">
 				<a class="nav-link" href="events.php">Events</a>
 			</li>
 			<li class="nav-item">
@@ -162,33 +184,27 @@
 	</div>
 </nav>
 
-<!-- Main Body -->
+<!-- Main  -->
 <div class="main_div">
 		<div class="box">
 			<h1>Register Blood Bank</h1>
-			<form method="" action="">
-
-
-				<div class="inputBox">
-						<input type="text" name="Organization Name" autocomplete="off" required>
+			<form method="post" action="#">
+                    <div class="inputBox">
+						<input type="text" name="oname" autocomplete="off" required>
 						<label>Organization Name*</label>
 					</div>
 
-
-					<div class="inputBox">
-						<input type="text" name="Address" autocomplete="off" required>
+                    <div class="inputBox">
+						<input type="text" name="address" autocomplete="off" required>
 						<label>Orgenization Address*</label>
 					</div>
-			
-			
-				<div class="inputBox">
-						
-						<form>
+
+                    <div class="inputBox">
 							  <div class="form-group col-md-4" style="float:left;float:top;clear:left;margin-top: 0;">
 							    <label for="inputState" style="margin-top:-20px;margin-left: 4px;">State*</label>
 							  
 								<!-- States -->
-							    <select class="form-control" id="inputState" style="width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left: -12px;">
+							    <select class="form-control" name="state" id="inputState" style="width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left: -12px;">
 							                        <option value="SelectState">Select State</option>
 							                        <option value="Andra Pradesh">Andra Pradesh</option>
 							                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -233,14 +249,11 @@
 							  <div class="form-group col-md-4" style="float:left;float:top;margin-top:-15px;margin-left:30px;">
 								
 								
-								<select class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
+								<select name="district" class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
 								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">District*</label>
 							  </div>
-
-							</form>
-
 							<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 							<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -251,8 +264,8 @@
 						
 					</div>	
 
-				<!-- Districts -->
-					<div class="inputBox">
+
+                    <div class="inputBox">
 
 										<script>		var AndraPradesh = ["Anantapur","Chittoor","East Godavari","Guntur","Kadapa","Krishna","Kurnool","Prakasam","Nellore","Srikakulam","Visakhapatnam","Vizianagaram","West Godavari"];
 										var ArunachalPradesh = ["Anjaw","Changlang","Dibang Valley","East Kameng","East Siang","Kra Daadi","Kurung Kumey","Lohit","Longding","Lower Dibang Valley","Lower Subansiri","Namsai","Papum Pare","Siang","Tawang","Tirap","Upper Siang","Upper Subansiri","West Kameng","West Siang","Itanagar"];
@@ -422,15 +435,12 @@
 
 					<br>
 
-					<div class="inputBox">
-						<input type="text" name="City" autocomplete="off" required>
+                    <div class="inputBox">
+						<input type="text" name="city" autocomplete="off" required>
 						<label>City*</label>
 					</div>
-					
-
 					<br>
-
-				<div class="inputBox">
+                    <div class="inputBox">
 
 					<input type="text" name="username" autocomplete="off" required>
 					<label>Username*</label>
@@ -440,15 +450,14 @@
 
 				<div class="inputBox">
 					
-					<input type="password" name="password" autocomplete="off" required>
+					<input type="password" name="pass" autocomplete="off" required>
 					<label>Password*</label>
 					
 				</div>
 
-				
-				<input type="Submit" name="submit" value="Register">
-				
-			</form>
+
+                    <input type="Submit" name="s" value="Register">
+            </form>
 		</div>
 	</div>
 
