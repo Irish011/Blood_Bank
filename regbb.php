@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trail</title>
+    <title>Blood Bank Registration</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 
@@ -122,14 +122,12 @@
     $state = $_POST['state'];
     $city = $_POST['city'];
     $district = $_POST['district'];
+	$lat=$_POST['latitude'];
+	$long=$_POST['longitude'];
 
     $servername="localhost";
 	$username="root";
-<<<<<<< HEAD
-	$password="KHUSHI";
-=======
-	$password="aastha";
->>>>>>> 6326fcd6074a69ac06cedc5cb8e8b60893652caa
+	$password="";
 	$database="bloodbank_nitr";
 
     $con=mysqli_connect($servername,$username,$password,$database);
@@ -137,8 +135,12 @@
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
 	}else{
+		if($lat == "" && $long == ""){
+			$lat = 0;
+			$long = 0;
+		}
         //      
-        $sql = "INSERT INTO `banks`(`org_name`, `usrname`, `password`, `state`, `city`, `district`) VALUES ('$orgname','$usrname','$pass','$state','$city','$district')";        
+        $sql = "INSERT INTO `banks`(`org_name`, `usrname`, `password`, `state`, `city`, `district`,`lat`,`longi`) VALUES ('$orgname','$usrname','$pass','$state','$city','$district','$lat','$long')";        
     //    $sql = "INSERT INTO `bank`(`org_name`)VALUES('$orgname')";
         $result = mysqli_query($con,$sql);
         if($result){
@@ -151,6 +153,23 @@
     }
   }
   ?>
+  <script>
+	  	function getLocation() {
+			var x = document.getElementById("demo");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+	  	function showPosition(position) {
+            document.getElementById("latitude").value = position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+        }
+		function show(){
+			alert('Good');
+		}
+  </script>
 </head>
 <body>
 
@@ -458,16 +477,19 @@
 						<input type="email" name="Emailid" autocomplete="off" required>
 						<label>Email Address*</label>
 					</div>
-
-
-					<br>
-                   <!-- <div class="inputBox">
-
-					<input type="text" name="username" autocomplete="off" required>
-					<label>Username*</label>
 					
-				</div>-->
-
+					<br>
+					<!-- <div class="inputBox">
+						
+						<input type="text" name="username" autocomplete="off" required>
+						<label>Username*</label>
+						
+					</div>-->
+					<div class="inputBox">
+						<!-- <input type="button" id="coords" onclick="getLocation()" value="Use Current Location" style="margin-bottom:10px; margin-left:25%"/> -->
+						<input type="text" id="latitude" name="latitude" hidden/>
+						<input type="text" id="longitude" name="longitude" hidden/>
+					</div>
 				<div class="inputBox">
 					
 					<input type="password" name="pass" autocomplete="off" required>
@@ -476,7 +498,7 @@
 				</div>
 
 
-                    <input type="Submit" name="s" value="Register">
+                    <input type="submit" name="s" value="Register" id="coords" onclick="getLocation()">
             </form>
 		</div>
 	</div>
