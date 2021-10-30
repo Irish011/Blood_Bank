@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Organise Events</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -111,6 +111,19 @@
 		}
 		
 	</style>
+
+	<?php
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
+
+	$con=mysqli_connect($servername,$username,$password,$database);
+
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	}
+	?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -207,7 +220,7 @@
 						<label>Venue*</label>
 					</div>
 
-
+<!--States and Districts -->
 					<div class="inputBox">
 						
 						<form>

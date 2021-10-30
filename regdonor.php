@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Donor Registration</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -111,7 +111,18 @@
 		
 	</style>
   
-	
+  <?php
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
+
+	$con=mysqli_connect($servername,$username,$password,$database);
+
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	}
+	?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -168,8 +179,8 @@
 						<label>Gender*</label>
 						<br><br>
 						<select name="Gender" autocomplete="off" required style="border-radius:5px;font-size:16px;color:#a22525;">
-							<option>Female</option>
 							<option>Male</option>
+							<option>Female</option>
 							<option>Other</option>
 						</select>
 
@@ -298,7 +309,7 @@
 							<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 						
 					</div>	
-
+<!-- States  -->
 					<div class="inputBox">
 
 										<script>		var AndraPradesh = ["Anantapur","Chittoor","East Godavari","Guntur","Kadapa","Krishna","Kurnool","Prakasam","Nellore","Srikakulam","Visakhapatnam","Vizianagaram","West Godavari"];
@@ -496,19 +507,19 @@
 
 
 					<br>
-
+<!-- 
 				<div class="inputBox">
 
 					<input type="text" name="username" autocomplete="off" required>
-					<label>usernamre*</label>
+					<label>Username*</label>
 					
-				</div>
+				</div> -->
 
 
 				<div class="inputBox">
 					
 					<input type="password" name="password" autocomplete="off" required>
-					<label>password*</label>
+					<label>Password*</label>
 					
 				</div>
 

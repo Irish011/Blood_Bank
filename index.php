@@ -2,16 +2,16 @@
 <html>
 <head>
 <?php 
-	// $servername="localhost";
-	// $username="root";
-	// $password="";
-	// $database="animal_helpline";
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
 
-	// $con=mysqli_connect($servername,$username,$password,$database);
+	$con=mysqli_connect($servername,$username,$password,$database);
 
-	// if(!$con){
-	// 	die("Sorry". mysqli_connect_error());
-	// }
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	}
 	
 ?>
 	<title>HomePage</title>

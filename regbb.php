@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Blood Bank Registration</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" href="style.css">
-	
+	<!-- CSS -->
 	<style>
 		
 		*
@@ -114,8 +114,21 @@
 		}
 		
 	</style>
+<?php
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
+
+	$con=mysqli_connect($servername,$username,$password,$database);
+
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	}
+?>
 </head>
 <body>
+	<!-- TopBar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 	<a class="navbar-brand" href="#">Welcome to Blood Bank</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -149,7 +162,7 @@
 	</div>
 </nav>
 
-
+<!-- Main Body -->
 <div class="main_div">
 		<div class="box">
 			<h1>Register Blood Bank</h1>
@@ -174,6 +187,7 @@
 							  <div class="form-group col-md-4" style="float:left;float:top;clear:left;margin-top: 0;">
 							    <label for="inputState" style="margin-top:-20px;margin-left: 4px;">State*</label>
 							  
+								<!-- States -->
 							    <select class="form-control" id="inputState" style="width:250px;border-radius:5px;font-size:16px;color:#a22525;margin-left: -12px;">
 							                        <option value="SelectState">Select State</option>
 							                        <option value="Andra Pradesh">Andra Pradesh</option>
@@ -237,6 +251,7 @@
 						
 					</div>	
 
+				<!-- Districts -->
 					<div class="inputBox">
 
 										<script>		var AndraPradesh = ["Anantapur","Chittoor","East Godavari","Guntur","Kadapa","Krishna","Kurnool","Prakasam","Nellore","Srikakulam","Visakhapatnam","Vizianagaram","West Godavari"];
@@ -418,7 +433,7 @@
 				<div class="inputBox">
 
 					<input type="text" name="username" autocomplete="off" required>
-					<label>usernamre*</label>
+					<label>Username*</label>
 					
 				</div>
 
@@ -426,12 +441,12 @@
 				<div class="inputBox">
 					
 					<input type="password" name="password" autocomplete="off" required>
-					<label>password*</label>
+					<label>Password*</label>
 					
 				</div>
 
 				
-				<input type="Submit" name="submit" value="Login">
+				<input type="Submit" name="submit" value="Register">
 				
 			</form>
 		</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Request Blood</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -90,7 +90,18 @@
 		
 	</style>
 	
-	
+	<?php
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
+
+	$con=mysqli_connect($servername,$username,$password,$database);
+
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	}
+	?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -402,7 +413,7 @@
 
 					<br>
 				
-				<input type="Submit" name="submit" value="Login">
+				<input type="Submit" name="submit" value="Send Request">
 				
 			</form>
 		</div>
