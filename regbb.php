@@ -16,7 +16,7 @@
 			margin-top:0;
 			padding:0;
 			box-sizing:border-box;
-			<!--font-family:'Josefin sans', sans-serif;-->
+			font-family:'Josefin sans', sans-serif;
 		}
 
 		.bg
@@ -125,11 +125,7 @@
 
     $servername="localhost";
 	$username="root";
-<<<<<<< HEAD
 	$password="KHUSHI";
-=======
-	$password="aastha";
->>>>>>> 6326fcd6074a69ac06cedc5cb8e8b60893652caa
 	$database="bloodbank_nitr";
 
     $con=mysqli_connect($servername,$username,$password,$database);
@@ -256,7 +252,7 @@
 								<select name="district" class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
-								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">City*</label>
+								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">District*</label>
 							  </div>
 							<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -440,33 +436,17 @@
 					<br>
 
                     <div class="inputBox">
-						<input type="text" name="Pincode" inputmode="numeric" name="Pincode" autocomplete="off" required maxlength="6">
-						<label>Pin Code*</label>
+						<input type="text" name="city" autocomplete="off" required>
+						<label>City*</label>
 					</div>
-
-
-					<h3>Contact Details</h3>
-				
-
-					<div class="inputBox">
-						<input type="text" inputmode="numeric" name="MoblieNo" autocomplete="off" required maxlength="10">
-						<label>Mobile No.*</label>
-					</div>
-
-
-					<div class="inputBox">
-						<input type="email" name="Emailid" autocomplete="off" required>
-						<label>Email Address*</label>
-					</div>
-
-
 					<br>
-                   <!-- <div class="inputBox">
+                    <div class="inputBox">
 
 					<input type="text" name="username" autocomplete="off" required>
 					<label>Username*</label>
 					
-				</div>-->
+				</div>
+
 
 				<div class="inputBox">
 					

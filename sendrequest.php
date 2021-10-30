@@ -93,11 +93,7 @@
 	<?php
 	$servername="localhost";
 	$username="root";
-<<<<<<< HEAD
 	$password="KHUSHI";
-=======
-	$password="aastha";
->>>>>>> 6326fcd6074a69ac06cedc5cb8e8b60893652caa
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -135,7 +131,7 @@
 				<a class="nav-link" href="events.php">Events</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="sendrequest.php">Send Request</a>
+				<a class="nav-link active" href="sendrequest.php">Send Request</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="login.php">Log-in</a>

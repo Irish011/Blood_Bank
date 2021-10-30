@@ -21,13 +21,13 @@
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
 		</form>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item active">
+			<li class="nav-item ">
 				<a class="nav-link" href="request.php">Requests</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item ">
 				<a class="nav-link" href="approval.php">Approval</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item active">
 				<a class="nav-link" href="registereduser.php">Registered Users</a>
 			</li>
 			<li class="nav-item">
@@ -37,15 +37,16 @@
 		</ul>
 	</div>
 </nav>
+
 <div style="margin-left:100px; margin-top:100px; margin-right:100px">
 	<table class="table">
 	  <thead class="thead-dark">
 		<tr >
 		  <th class="bg-danger" scope="col">#</th>
-		  <th class="bg-danger" scope="col">Name of the Organistion</th>
-		  <th class="bg-danger" scope="col">State</th>
-		  <th class="bg-danger" scope="col">District</th>
-		  <th class="bg-danger" scope="col">Pincode</th>
+		  <th class="bg-danger" scope="col">Full Name</th>
+		  <th class="bg-danger" scope="col">Blood Group</th>
+		  <th class="bg-danger" scope="col">Email-Id</th>
+		  <th class="bg-danger" scope="col">Phone no.</th>
 		</tr>
 	  </thead>
 	  <tbody>
@@ -74,6 +75,7 @@
 	</table>
 
 </div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

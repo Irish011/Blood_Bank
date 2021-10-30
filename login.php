@@ -95,11 +95,7 @@
 session_start();
 	$servername="localhost";
 	$username="root";
-<<<<<<< HEAD
 	$password="KHUSHI";
-=======
-	$password="aastha";
->>>>>>> 6326fcd6074a69ac06cedc5cb8e8b60893652caa
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -108,69 +104,72 @@ session_start();
 		die("Sorry". mysqli_connect_error());
 	}
 	mysqli_select_db($con,$database);
-	if(isset($_POST['login']){
-	$dropdown=$_POST['login'];	
 	
-	if($dropdown=="lad")
-	{
-		if(isset($_POST['s'])){
-		$email=$_POST['email'];
-		$pass=$_POST['password'];
+	if(isset($_POST['login'])){
+	
+		$dropdown=$_POST['login'];	
+	
+		if($dropdown=="lad")
+		{
+			if(isset($_POST['s'])){
+			$email=$_POST['email'];
+			$pass=$_POST['password'];
 
-		$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
-		$result=mysqli_query($con,$sql);
+			$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
+			$result=mysqli_query($con,$sql);
 
-		if(!$result || mysqli_num_rows($result)==0){
-            $message1="Wrong Credentials";
-            echo "<script type='text/javascript'>alert('$message1');</script>";
-        }else{
-            //header("location:user_page.php");
-            header("location:homepage.php");
-            $_SESSION['email'] = $email;
-        }
+				if(!$result || mysqli_num_rows($result)==0){
+					$message1="Wrong Credentials";
+					echo "<script type='text/javascript'>alert('$message1');</script>";
+				}else{
+					//header("location:user_page.php");
+					header("location:homepage.php");
+					$_SESSION['email'] = $email;
+				}
+			}
+		}
+		else if($dropdown=="lab")
+		{
+			if(isset($_POST['s'])){
+			$email=$_POST['email'];
+			$pass=$_POST['password'];
+
+			$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
+			$result=mysqli_query($con,$sql);
+
+				if(!$result || mysqli_num_rows($result)==0){
+					$message1="Wrong Credentials";
+					echo "<script type='text/javascript'>alert('$message1');</script>";
+				}else{
+					//header("location:user_page.php");
+					header("location:loginasbb.php");
+					$_SESSION['email'] = $email;
+				}
+			}
+		}
+		else if($dropdown=="laa")
+		{
+			if(isset($_POST['s'])){
+			$email=$_POST['email'];
+			$pass=$_POST['password'];
+
+			$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
+			$result=mysqli_query($con,$sql);
+
+				if(!$result || mysqli_num_rows($result)==0){
+					$message1="Wrong Credentials";
+					echo "<script type='text/javascript'>alert('$message1');</script>";
+				}else{
+					//header("location:user_page.php");
+					header("location:admin.php");
+					$_SESSION['email'] = $email;
+				}
+			}
+		}
 	}
 	
-	else if($dropdown=="lab")
-	{
-		if(isset($_POST['s'])){
-		$email=$_POST['email'];
-		$pass=$_POST['password'];
-
-		$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
-		$result=mysqli_query($con,$sql);
-
-		if(!$result || mysqli_num_rows($result)==0){
-            $message1="Wrong Credentials";
-            echo "<script type='text/javascript'>alert('$message1');</script>";
-        }else{
-            //header("location:user_page.php");
-            header("location:loginasbb.php");
-            $_SESSION['email'] = $email;
-        }
-	}
-	else if($dropdown=="laa")
-	{
-		if(isset($_POST['s'])){
-		$email=$_POST['email'];
-		$pass=$_POST['password'];
-
-		$sql="SELECT * FROM `user` WHERE `email` LIKE '$email' AND `password` LIKE '$pass'";
-		$result=mysqli_query($con,$sql);
-
-		if(!$result || mysqli_num_rows($result)==0){
-            $message1="Wrong Credentials";
-            echo "<script type='text/javascript'>alert('$message1');</script>";
-        }else{
-            //header("location:user_page.php");
-            header("location:admin.php");
-            $_SESSION['email'] = $email;
-        }
-	}
-	}
-	}
-	}
 	
-	}
+	
 ?>
 </head>
 <body>
