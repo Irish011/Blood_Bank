@@ -16,7 +16,7 @@
 			margin-top:0;
 			padding:0;
 			box-sizing:border-box;
-			font-family:'Josefin sans', sans-serif;
+			<!--font-family:'Josefin sans', sans-serif;-->
 		}
 
 		.bg
@@ -93,7 +93,7 @@
 		.box .inputBox input:focus + label,
 		.box .inputBox input:valid ~ label
 		{
-			top:-28px;
+			top:-18px;
 			left:0;
 			color:#fff;
 			font-size:12px;
@@ -131,7 +131,7 @@
 
     $servername="localhost";
 	$username="root";
-	$password="";
+	$password="aastha";
 	$database="bloodbank_nitr";
 
     $con=mysqli_connect($servername,$username,$password,$database);
@@ -241,7 +241,7 @@
 					</div>
 
                     <div class="inputBox">
-						<input type="text" name="aadhaar" autocomplete="off" required>
+						<input type="text" name="aadhaar" autocomplete="off" required maxlength="12">
 						<label>Aadhaar Card NO.*</label>
 					</div>
 				
@@ -250,13 +250,13 @@
 				
 
 					<div class="inputBox">
-						<input type="text" name="mobile" autocomplete="off" required>
+						<input type="text" inputmode="numeric" name="MoblieNo" autocomplete="off" required maxlength="10">
 						<label>Mobile No.*</label>
 					</div>
 
 
 					<div class="inputBox">
-						<input type="text" name="email" autocomplete="off" required>
+						<input type="email" name="Emailid" autocomplete="off" required>
 						<label>Email Address*</label>
 					</div>
 
@@ -317,7 +317,7 @@
 								<select class="form-control" name="district" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
-								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">District*</label>
+								<label for="inputDistrict" style="margin-left:65px;margin-top:-30px;">City*</label>
 							  </div>
 
 							<!-- </form> -->
@@ -501,10 +501,11 @@
 								
 					</div>
 
-<br>
+					<br><br>
+
                     <div class="inputBox">
-						<input type="text" name="city" autocomplete="off" required>
-						<label>City*</label>
+						<input type="text" name="Pincode" inputmode="numeric" name="Pincode" autocomplete="off" required maxlength="6">
+						<label>Pin Code*</label>
 					</div>
 
 

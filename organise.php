@@ -115,7 +115,7 @@
 	<?php
 	$servername="localhost";
 	$username="root";
-	$password="";
+	$password="aastha";
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -123,7 +123,7 @@
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
 	}
-	?>
+	?> 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -275,7 +275,7 @@
 								<select class="form-control" id="inputDistrict" style="width:150px;border-radius:5px;font-size:16px;color:#a22525;margin-left: 50px;margin-top: -8px;">
 								     <option value="">-- select one -- </option>
 								</select>
-								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">District*</label>
+								<label for="inputDistrict" style="margin-left:65px;margin-top:-28px;">City*</label>
 							  </div>
 
 							</form>
@@ -461,8 +461,8 @@
 					<br><br>
 
 					<div class="inputBox">
-						<input type="text" name="City" autocomplete="off" required>
-						<label>City*</label>
+						<input type="text" name="Pincode" inputmode="numeric" name="Pincode" autocomplete="off" required maxlength="6">
+						<label>Pin Code*</label>
 					</div>
 
 
@@ -482,13 +482,13 @@
 				
 
 					<div class="inputBox">
-						<input type="text" name="MoblieNo" autocomplete="off" required>
+						<input type="text" inputmode="numeric" name="MoblieNo" autocomplete="off" required maxlength="10">
 						<label>Mobile No.*</label>
 					</div>
 
 
 					<div class="inputBox">
-						<input type="text" name="Email" autocomplete="off" required>
+						<input type="email" name="Emailid" autocomplete="off" required>
 						<label>Email Address*</label>
 					</div>
 

@@ -95,7 +95,7 @@
 session_start();
 	$servername="localhost";
 	$username="root";
-	$password="";
+	$password="aastha";
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
