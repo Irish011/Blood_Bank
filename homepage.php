@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>User Page</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" href="style.css">
+	
+	<?php
+	
+		session_start();
+		if(isset($_POST['s'])){
+			if($_SERVER['REQUEST_METHOD'] == 'POST'){
+				$search=$_POST['search'];
+				$_SESSION['search']=$search;
+            header("location:search.php");
+			}
+		}
+
+	?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -16,9 +29,9 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search Blood" aria-label="Search">
-			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+		<form method="post" class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" name="search" type="search" placeholder="Search Blood" aria-label="Search">
+			<button class="btn btn-outline-light" name="s" my-2 my-sm-0 type="submit">Search</button>
 		</form>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item ">

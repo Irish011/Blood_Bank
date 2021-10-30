@@ -28,7 +28,7 @@
          $l[$i] = $nam;
          $t[$i] = $cid;
 		 $i++;
-		}
+	}
 ?>
 	<title>HomePage</title>
 	<meta charset="utf-8">
