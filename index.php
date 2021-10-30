@@ -4,7 +4,11 @@
 <?php 
 	$servername="localhost";
 	$username="root";
+<<<<<<< HEAD
 	$password="KHUSHI";
+=======
+	$password="";
+>>>>>>> 4b464f2840ed34b1c57337d544579ca4b2798dc5
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);
@@ -12,7 +16,23 @@
 	if(!$con){
 		die("Sorry". mysqli_connect_error());
 	}
-	
+	$sql="SELECT * FROM `banks`";
+    $result = mysqli_query($con,$sql);
+    $num = mysqli_num_rows($result);
+
+	//Fetch Lat and Lng values into an Array
+    $i = 0;
+
+	 while($row = mysqli_fetch_assoc($result)){
+         $lat = $row['lat'];
+         $lng = $row['longi'];
+         $nam = $row['org_name'];
+         $cid = $row['id'];
+        $j[$i] = $lat. ", " . $lng;
+         $l[$i] = $nam;
+         $t[$i] = $cid;
+		 $i++;
+		}
 ?>
 	<title>HomePage</title>
 	<meta charset="utf-8">
@@ -58,8 +78,6 @@
 <center>
 <div class="iframe-container">
 <div id="googleMap" style="border:1px ; height:500px; width:600px; align:center; margin-top:40px; margin-left:425px">
-	<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3671.3601441376495!2d72.55607551496823!3d23.0472544849406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1634834394619!5m2!1sen!2sin" width="600" height="475" style="border:0;" margin-top="40%" allowfullscreen="" loading="lazy"></iframe> -->
-		<!-- <div id="map"></div> -->
 		<script>
 			function myMap() {
 var mapProp= {
@@ -67,21 +85,9 @@ var mapProp= {
   zoom:12,
 };
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
 
 
-	</script>
-	<!-- <script>
-
-    let map;
-
-    function initMap(){
-        var map = new google.maps.Map(document.getElementById("map"),{
-            center: new google.maps.LatLng(23.033863, 72.585022),
-            zoom: 12,
-        });
-        
-        const features = [
+const features = [
             <?php 
                 for($k=0;$k<$num;$k++){
                     printf("{
@@ -90,11 +96,26 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
                         url: 'https://www.google.com/maps/dir//$j[$k]',    
                     },");
                     $hi = "<script>console.log('$t[$k]');</script>";
-                }   
+                }    
             ?>
         ];
-    }
-</script> -->
+		// Creating Markers
+        for(let i=0;i<features.length;i++){
+            const marker = new google.maps.Marker({
+                position: features[i].position,
+                map: map,
+                title: features[i].title,
+                url: features[i].url,
+            });
+            google.maps.event.addListener(marker, 'click', function(){
+                window.open(this.url, '_blank');
+            });
+        }
+}
+
+
+	</script>
+	
 </div>
 </div>
 </center>
@@ -124,7 +145,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC78Kk1lM_1AbDkP7yHGcFxHYN988mY53w&callback=myMap">
 	</script>
     
-	<!-- async &libraries=&v=weekly -->
+	
 </body>
 </html>
 <!--blah-->
