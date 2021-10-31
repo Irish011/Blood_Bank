@@ -127,11 +127,7 @@
 
     $servername="localhost";
 	$username="root";
-<<<<<<< HEAD
-	$password="KHUSHI";
-=======
 	$password="";
->>>>>>> 4b464f2840ed34b1c57337d544579ca4b2798dc5
 	$database="bloodbank_nitr";
 
     $con=mysqli_connect($servername,$username,$password,$database);
@@ -466,17 +462,6 @@
 						<input type="text" name="city" autocomplete="off" required>
 						<label>City*</label>
 					</div>
-<<<<<<< HEAD
-					<br>
-                    <div class="inputBox">
-
-					<input type="text" name="username" autocomplete="off" required>
-					<label>Username*</label>
-					
-				</div>
-
-
-=======
 
 
 					<h3>Contact Details</h3>
@@ -505,7 +490,6 @@
 						<input type="text" id="latitude" name="latitude" hidden/>
 						<input type="text" id="longitude" name="longitude" hidden/>
 					</div>
->>>>>>> 4b464f2840ed34b1c57337d544579ca4b2798dc5
 				<div class="inputBox">
 					
 					<input type="password" name="pass" autocomplete="off" required>

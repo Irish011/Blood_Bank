@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Admin Page</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" href="style.css">
+	<?php 
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$database="bloodbank_nitr";
+
+	$con=mysqli_connect($servername,$username,$password,$database);
+
+	if(!$con){
+		die("Sorry". mysqli_connect_error());
+	} 
+	$sql="SELECT `org_name`,`state`,`city`,`district` FROM `banks` WHERE 1";
+	$result = mysqli_query($con,$sql);
+    // $num = mysqli_num_rows($result);
+	
+	$i=0;
+	while($row = mysqli_fetch_array($result)){
+		$name = $row['org_name'];
+		$state = $row['state'];
+		$district = $row['district'];
+		$pincode = $row['city'];
+	}
+	$i++
+	?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -51,25 +75,12 @@
 	  <tbody>
 		<tr>
 		  <th scope="row">1</th>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
+		  <td><?php echo $name ?></td>
+		  <td><?php echo $state ?></td>
+		  <td><?php echo $district ?></td>
+		  <td><?php echo $city ?></td>
 		</tr>
-		<tr>
-		  <th scope="row">2</th>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		</tr>
-		<tr>
-		  <th scope="row">3</th>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		</tr>
+		
 	  </tbody>
 	</table>
 

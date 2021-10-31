@@ -72,8 +72,8 @@
 	</div>
 </nav>
 <center>
-<div class="iframe-container">
-<div id="googleMap" style="border:1px ; height:500px; width:600px; align:center; margin-top:40px; margin-left:425px">
+<div class="iframe-container" style="margin-left:-400px">
+<div id="googleMap" style="border:1px ; height:600px; width:1000px; align:center; margin-top:40px; margin-left:425px">
 		<script>
 			function myMap() {
 var mapProp= {

@@ -115,11 +115,7 @@
 	<?php
 	$servername="localhost";
 	$username="root";
-<<<<<<< HEAD
-	$password="KHUSHI";
-=======
 	$password="";
->>>>>>> 4b464f2840ed34b1c57337d544579ca4b2798dc5
 	$database="bloodbank_nitr";
 
 	$con=mysqli_connect($servername,$username,$password,$database);

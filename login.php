@@ -113,7 +113,7 @@ session_start();
 		$email=$_POST['email'];
 		$pass=$_POST['password'];
 
-		$sql="SELECT * FROM `banks` WHERE `usrname` LIKE '$email' AND `password` LIKE '$pass'";
+		$sql="SELECT * FROM `banks` WHERE `org_name` LIKE '$email' AND `password` LIKE '$pass'";
 		$result=mysqli_query($con,$sql);
 
 		if(!$result || mysqli_num_rows($result)==0){
@@ -121,7 +121,7 @@ session_start();
 			echo "<script type='text/javascript'>alert('$message1');</script>";
 		}else{
 			//header("location:user_page.php");
-			header("location:loginasbb.php");
+			header("location:bloodbank.php");
 			$_SESSION['name'] = $email;
 		}
 	}
@@ -215,7 +215,7 @@ session_start();
 					<option value="laa" style="background:rgba(209, 32, 47, 0.9);">Login As Admin</option>
 				</select>
 			</div>
-
+			<br><br>
 				<div class="inputBox">
 
 					<input type="text" name="email" autocomplete="off" required>
